@@ -1,0 +1,22 @@
+{
+  "inputs": [
+    {
+      "id": "ado_org",
+      "type": "promptString",
+      "description": "Azure DevOps organization",
+      "default": "damianocuria"
+    },
+    {
+      "id": "ado_project", 
+      "type": "promptString",
+      "description": "Azure DevOps project",
+      "default": "eShopOnWeb"
+    }
+  ],
+  "servers": {
+    "ado": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@azure-devops/mcp", "${input:ado_org}", "${input:ado_project}", "--tenant", "22c27582-1231-4b07-9c49-8aa9ea902203"]    }
+  }
+}

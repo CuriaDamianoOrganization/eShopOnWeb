@@ -1,0 +1,1 @@
+This project uses Azure DevOps. Always check if the Azure DevOps MCP server has a relevant tool for the user's request before proceeding.
