@@ -1,0 +1,111 @@
+@page
+@model AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>@ViewData["Title"]</h1>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-content">
+                        <h2>About eShopOnWeb</h2>
+                        <p>Welcome to eShopOnWeb, a modern e-commerce platform built with ASP.NET Core. This platform demonstrates enterprise-level patterns and practices for building scalable web applications.</p>
+                        
+                        <div class="abb-logo-container text-center mb-4">
+                            <img src="~/images/abb-logo.png" alt="ABB Logo" class="abb-logo" />
+                        </div>
+                        
+                        <p>Our platform showcases the power of modern web technologies and is designed to provide an excellent user experience for both customers and administrators.</p>
+                        
+                        <h3>Key Features:</h3>
+                        <ul>
+                            <li>Clean Architecture implementation</li>
+                            <li>Identity and authentication</li>
+                            <li>Responsive design</li>
+                            <li>Admin dashboard</li>
+                            <li>Shopping cart functionality</li>
+                            <li>Order management</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h2>Contact Us</h2>
+                    
+                    @if (Model.AboutViewModel.StatusMessage != null)
+                    {
+                        <div class="alert @(Model.AboutViewModel.EmailSent ? "alert-success" : "alert-danger")" role="alert">
+                            @Model.AboutViewModel.StatusMessage
+                        </div>
+                    }
+                    
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        
+                        <div class="form-group mb-3">
+                            <label asp-for="AboutViewModel.Name" class="form-label"></label>
+                            <input asp-for="AboutViewModel.Name" class="form-control" />
+                            <span asp-validation-for="AboutViewModel.Name" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label asp-for="AboutViewModel.Email" class="form-label"></label>
+                            <input asp-for="AboutViewModel.Email" class="form-control" />
+                            <span asp-validation-for="AboutViewModel.Email" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label asp-for="AboutViewModel.Subject" class="form-label"></label>
+                            <input asp-for="AboutViewModel.Subject" class="form-control" />
+                            <span asp-validation-for="AboutViewModel.Subject" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label asp-for="AboutViewModel.Message" class="form-label"></label>
+                            <textarea asp-for="AboutViewModel.Message" class="form-control" rows="5"></textarea>
+                            <span asp-validation-for="AboutViewModel.Message" class="text-danger"></span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+<style>
+.about-content {
+    padding: 20px 0;
+}
+
+.abb-logo-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.abb-logo {
+    max-width: 200px;
+    height: auto;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+</style>
