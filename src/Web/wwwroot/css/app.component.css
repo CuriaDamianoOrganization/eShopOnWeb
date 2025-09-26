@@ -9,6 +9,13 @@
   .esh-app-footer-brand {
     height: 50px;
     width: 230px; }
+  .esh-app-footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.35s; }
+    .esh-app-footer-link:hover {
+      color: #75b918;
+      transition: color 0.35s; }
 
 .esh-app-header {
   margin: 15px; }
