@@ -84,3 +84,23 @@ a:visited {
         color: #75B918;
         transition: color 0.35s;
     }
+
+/* Footer navigation styles */
+.esh-app-footer-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    height: 100%;
+}
+
+.esh-app-footer-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.esh-app-footer-link:hover {
+    color: #75B918;
+    text-decoration: none;
+}
