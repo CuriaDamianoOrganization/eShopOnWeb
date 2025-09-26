@@ -6,72 +6,92 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <h1>@ViewData["Title"]</h1>
+        <div class="col-12">
+            <div class="about-header text-center mb-5">
+                <h1 class="about-title">@ViewData["Title"]</h1>
+                <div class="abb-logo-container">
+                    <img src="~/images/abb-logo.svg" alt="ABB Logo" class="abb-logo" />
+                </div>
+            </div>
             
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-lg-6 col-md-12 mb-4">
                     <div class="about-content">
-                        <h2>About eShopOnWeb</h2>
-                        <p>Welcome to eShopOnWeb, a modern e-commerce platform built with ASP.NET Core. This platform demonstrates enterprise-level patterns and practices for building scalable web applications.</p>
-                        
-                        <div class="abb-logo-container text-center mb-4">
-                            <img src="~/images/abb-logo.svg" alt="ABB Logo" class="abb-logo" />
+                        <div class="content-section mb-4">
+                            <h2 class="section-title">About eShopOnWeb</h2>
+                            <p class="lead">Welcome to eShopOnWeb, a modern e-commerce platform built with ASP.NET Core. This platform demonstrates enterprise-level patterns and practices for building scalable web applications.</p>
+                            
+                            <p>Our platform showcases the power of modern web technologies and is designed to provide an excellent user experience for both customers and administrators.</p>
                         </div>
                         
-                        <p>Our platform showcases the power of modern web technologies and is designed to provide an excellent user experience for both customers and administrators.</p>
-                        
-                        <h3>Key Features:</h3>
-                        <ul>
-                            <li>Clean Architecture implementation</li>
-                            <li>Identity and authentication</li>
-                            <li>Responsive design</li>
-                            <li>Admin dashboard</li>
-                            <li>Shopping cart functionality</li>
-                            <li>Order management</li>
-                        </ul>
+                        <div class="features-section">
+                            <h3 class="features-title">Key Features:</h3>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="feature-list">
+                                        <li>Clean Architecture implementation</li>
+                                        <li>Identity and authentication</li>
+                                        <li>Responsive design</li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="feature-list">
+                                        <li>Admin dashboard</li>
+                                        <li>Shopping cart functionality</li>
+                                        <li>Order management</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="col-md-6">
-                    <h2>Contact Us</h2>
-                    
-                    @if (Model.AboutViewModel.StatusMessage != null)
-                    {
-                        <div class="alert @(Model.AboutViewModel.EmailSent ? "alert-success" : "alert-danger")" role="alert">
-                            @Model.AboutViewModel.StatusMessage
-                        </div>
-                    }
-                    
-                    <form method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="contact-section">
+                        <h2 class="contact-title">Contact Us</h2>
                         
-                        <div class="form-group mb-3">
-                            <label asp-for="AboutViewModel.Name" class="form-label"></label>
-                            <input asp-for="AboutViewModel.Name" class="form-control" />
-                            <span asp-validation-for="AboutViewModel.Name" class="text-danger"></span>
-                        </div>
+                        @if (Model.AboutViewModel.StatusMessage != null)
+                        {
+                            <div class="alert @(Model.AboutViewModel.EmailSent ? "alert-success" : "alert-danger")" role="alert">
+                                @Model.AboutViewModel.StatusMessage
+                            </div>
+                        }
                         
-                        <div class="form-group mb-3">
-                            <label asp-for="AboutViewModel.Email" class="form-label"></label>
-                            <input asp-for="AboutViewModel.Email" class="form-control" />
-                            <span asp-validation-for="AboutViewModel.Email" class="text-danger"></span>
-                        </div>
-                        
-                        <div class="form-group mb-3">
-                            <label asp-for="AboutViewModel.Subject" class="form-label"></label>
-                            <input asp-for="AboutViewModel.Subject" class="form-control" />
-                            <span asp-validation-for="AboutViewModel.Subject" class="text-danger"></span>
-                        </div>
-                        
-                        <div class="form-group mb-3">
-                            <label asp-for="AboutViewModel.Message" class="form-label"></label>
-                            <textarea asp-for="AboutViewModel.Message" class="form-control" rows="5"></textarea>
-                            <span asp-validation-for="AboutViewModel.Message" class="text-danger"></span>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+                        <form method="post" class="contact-form">
+                            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                            
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group mb-3">
+                                        <label asp-for="AboutViewModel.Name" class="form-label"></label>
+                                        <input asp-for="AboutViewModel.Name" class="form-control" />
+                                        <span asp-validation-for="AboutViewModel.Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group mb-3">
+                                        <label asp-for="AboutViewModel.Email" class="form-label"></label>
+                                        <input asp-for="AboutViewModel.Email" class="form-control" />
+                                        <span asp-validation-for="AboutViewModel.Email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <label asp-for="AboutViewModel.Subject" class="form-label"></label>
+                                <input asp-for="AboutViewModel.Subject" class="form-control" />
+                                <span asp-validation-for="AboutViewModel.Subject" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <label asp-for="AboutViewModel.Message" class="form-label"></label>
+                                <textarea asp-for="AboutViewModel.Message" class="form-control" rows="5"></textarea>
+                                <span asp-validation-for="AboutViewModel.Message" class="text-danger"></span>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-abb-primary btn-lg w-100">Send Message</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,29 +103,324 @@
 }
 
 <style>
-.about-content {
-    padding: 20px 0;
+/* ABB Brand Colors */
+:root {
+    --abb-red: #DC291E;
+    --abb-white: #FFFFFF;
+    --abb-light-gray: #F8F9FA;
+    --abb-dark-gray: #333333;
+}
+
+/* About Page Header */
+.about-header {
+    padding: 2rem 0;
+    background: linear-gradient(135deg, var(--abb-red) 0%, #B91C1C 100%);
+    color: var(--abb-white);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(220, 41, 30, 0.1);
+}
+
+.about-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .abb-logo-container {
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    margin: 20px 0;
+    display: inline-block;
+    padding: 1rem;
+    background-color: var(--abb-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.abb-logo-container:hover {
+    transform: translateY(-2px);
 }
 
 .abb-logo {
     max-width: 200px;
     height: auto;
+    display: block;
 }
 
-.form-group {
+/* Content Sections */
+.about-content {
+    padding: 1.5rem 0;
+}
+
+.content-section {
+    background-color: var(--abb-white);
+    border-left: 4px solid var(--abb-red);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.section-title {
+    color: var(--abb-red);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+
+.lead {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--abb-dark-gray);
     margin-bottom: 1rem;
 }
 
-.form-label {
+/* Features Section */
+.features-section {
+    background-color: var(--abb-light-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+}
+
+.features-title {
+    color: var(--abb-red);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #E5E7EB;
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--abb-dark-gray);
     font-weight: 500;
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+.feature-list li:before {
+    content: '●';
+    color: var(--abb-red);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--abb-white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 1px solid #E5E7EB;
+}
+
+.contact-title {
+    color: var(--abb-red);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 100%;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-weight: 600;
     margin-bottom: 0.5rem;
     display: block;
+    color: var(--abb-dark-gray);
+    font-size: 0.95rem;
+}
+
+.form-control {
+    border: 2px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--abb-red);
+    box-shadow: 0 0 0 0.2rem rgba(220, 41, 30, 0.25);
+    outline: none;
+}
+
+/* ABB Themed Button */
+.btn-abb-primary {
+    background: linear-gradient(135deg, var(--abb-red) 0%, #B91C1C 100%);
+    border: none;
+    color: var(--abb-white);
+    font-weight: 600;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+}
+
+.btn-abb-primary:hover {
+    background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+    color: var(--abb-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(220, 41, 30, 0.3);
+}
+
+.btn-abb-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220, 41, 30, 0.5);
+    color: var(--abb-white);
+}
+
+.btn-abb-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(220, 41, 30, 0.3);
+}
+
+/* Responsive Design */
+@@media (max-width: 1199.98px) {
+    .about-title {
+        font-size: 2.25rem;
+    }
+    
+    .abb-logo {
+        max-width: 180px;
+    }
+}
+
+@@media (max-width: 991.98px) {
+    .about-header {
+        padding: 1.5rem 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .about-title {
+        font-size: 2rem;
+    }
+    
+    .abb-logo {
+        max-width: 160px;
+    }
+    
+    .contact-section {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .content-section {
+        padding: 1.25rem;
+    }
+    
+    .features-section {
+        padding: 1.25rem;
+    }
+}
+
+@@media (max-width: 767.98px) {
+    .about-header {
+        padding: 1.25rem 0.75rem;
+    }
+    
+    .about-title {
+        font-size: 1.75rem;
+    }
+    
+    .abb-logo {
+        max-width: 140px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .contact-title {
+        font-size: 1.5rem;
+    }
+    
+    .contact-section {
+        padding: 1.25rem;
+    }
+    
+    .content-section {
+        padding: 1rem;
+    }
+    
+    .features-section {
+        padding: 1rem;
+    }
+    
+    .btn-abb-primary {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+@@media (max-width: 575.98px) {
+    .about-header {
+        padding: 1rem 0.5rem;
+    }
+    
+    .about-title {
+        font-size: 1.5rem;
+    }
+    
+    .abb-logo {
+        max-width: 120px;
+    }
+    
+    .section-title {
+        font-size: 1.35rem;
+    }
+    
+    .contact-title {
+        font-size: 1.35rem;
+    }
+    
+    .feature-list li {
+        font-size: 0.9rem;
+    }
+    
+    .form-control {
+        padding: 0.625rem;
+        font-size: 0.95rem;
+    }
+    
+    .btn-abb-primary {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Alert Styling */
+.alert-success {
+    background-color: #D4F6D4;
+    border-color: #22C55E;
+    color: #166534;
+    border-radius: 8px;
+    border-width: 2px;
+}
+
+.alert-danger {
+    background-color: #FEE2E2;
+    border-color: var(--abb-red);
+    color: #991B1B;
+    border-radius: 8px;
+    border-width: 2px;
 }
 </style>
