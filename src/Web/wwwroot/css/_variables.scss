@@ -1,32 +1,98 @@
-// Colors
-$color-brand: #00A69C;
-$color-brand-dark: darken($color-brand, 10%);
-$color-brand-darker: darken($color-brand, 20%);
-$color-brand-bright: lighten($color-brand, 10%);
-$color-brand-brighter: lighten($color-brand, 20%);
+// Colors - Theme Variables
+// Light theme (default)
+:root {
+    // Brand colors remain consistent
+    --color-brand: #00A69C;
+    --color-brand-dark: #008a82;
+    --color-brand-darker: #006f68;
+    --color-brand-bright: #1ab8af;
+    --color-brand-brighter: #33cac2;
 
-$color-secondary: #83D01B;
-$color-secondary-dark: darken($color-secondary, 5%);
-$color-secondary-darker: darken($color-secondary, 20%);
-$color-secondary-bright: lighten($color-secondary, 10%);
-$color-secondary-brighter: lighten($color-secondary, 20%);
+    --color-secondary: #83D01B;
+    --color-secondary-dark: #72b916;
+    --color-secondary-darker: #5a930f;
+    --color-secondary-bright: #95da35;
+    --color-secondary-brighter: #a7e44e;
 
-$color-warning: #ff0000;
-$color-warning-dark: darken($color-warning, 5%);
-$color-warning-darker: darken($color-warning, 20%);
-$color-warning-bright: lighten($color-warning, 10%);
-$color-warning-brighter: lighten($color-warning, 20%);
+    --color-warning: #ff0000;
+    --color-warning-dark: #d90000;
+    --color-warning-darker: #b30000;
+    --color-warning-bright: #ff1a1a;
+    --color-warning-brighter: #ff3333;
 
+    // Light theme backgrounds and foregrounds
+    --color-background-dark: #f5f5f5;
+    --color-background-darker: #e0e0e0;
+    --color-background-bright: #fafafa;
+    --color-background-brighter: #ffffff;
 
-$color-background-dark: #333333;
-$color-background-darker: #000000;
-$color-background-bright: #EEEEFF;
-$color-background-brighter: #FFFFFF;
+    --color-foreground-dark: #333333;
+    --color-foreground-darker: #000000;
+    --color-foreground-bright: #666666;
+    --color-foreground-brighter: #999999;
+}
 
-$color-foreground-dark: #333333;
-$color-foreground-darker: #000000;
-$color-foreground-bright: #EEEEEE;
-$color-foreground-brighter: #FFFFFF;
+// Dark theme
+[data-theme="dark"] {
+    // Brand colors remain consistent
+    --color-brand: #00A69C;
+    --color-brand-dark: #008a82;
+    --color-brand-darker: #006f68;
+    --color-brand-bright: #1ab8af;
+    --color-brand-brighter: #33cac2;
+
+    --color-secondary: #83D01B;
+    --color-secondary-dark: #72b916;
+    --color-secondary-darker: #5a930f;
+    --color-secondary-bright: #95da35;
+    --color-secondary-brighter: #a7e44e;
+
+    --color-warning: #ff0000;
+    --color-warning-dark: #d90000;
+    --color-warning-darker: #b30000;
+    --color-warning-bright: #ff1a1a;
+    --color-warning-brighter: #ff3333;
+
+    // Dark theme backgrounds and foregrounds (pure black theme)
+    --color-background-dark: #0a0a0a;
+    --color-background-darker: #000000;
+    --color-background-bright: #1a1a1a;
+    --color-background-brighter: #000000;
+
+    --color-foreground-dark: #e8e8e8;
+    --color-foreground-darker: #ffffff;
+    --color-foreground-bright: #b0b0b0;
+    --color-foreground-brighter: #888888;
+}
+
+// SCSS variables for backward compatibility
+$color-brand: var(--color-brand);
+$color-brand-dark: var(--color-brand-dark);
+$color-brand-darker: var(--color-brand-darker);
+$color-brand-bright: var(--color-brand-bright);
+$color-brand-brighter: var(--color-brand-brighter);
+
+$color-secondary: var(--color-secondary);
+$color-secondary-dark: var(--color-secondary-dark);
+$color-secondary-darker: var(--color-secondary-darker);
+$color-secondary-bright: var(--color-secondary-bright);
+$color-secondary-brighter: var(--color-secondary-brighter);
+
+$color-warning: var(--color-warning);
+$color-warning-dark: var(--color-warning-dark);
+$color-warning-darker: var(--color-warning-darker);
+$color-warning-bright: var(--color-warning-bright);
+$color-warning-brighter: var(--color-warning-brighter);
+
+$color-background-dark: var(--color-background-dark);
+$color-background-darker: var(--color-background-darker);
+$color-background-bright: var(--color-background-bright);
+$color-background-brighter: var(--color-background-brighter);
+
+$color-foreground-dark: var(--color-foreground-dark);
+$color-foreground-darker: var(--color-foreground-darker);
+$color-foreground-bright: var(--color-foreground-bright);
+$color-foreground-brighter: var(--color-foreground-brighter);
 
 // Animations
 $animation-speed-default: .35s;

@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Microsoft.eShopOnWeb</title>
+    <title>@ViewData["Title"] - DAMIANO's SHOP</title>
     <environment names="Development,Docker">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/app.css" />
+        <link rel="stylesheet" href="~/css/theme.css" />
         <link rel="stylesheet" href="~/css/app.component.css" />
         <link rel="stylesheet" href="~/css/shared/components/header/header.css" />
         <link rel="stylesheet" href="~/css/shared/components/identity/identity.css" />
@@ -33,6 +34,9 @@
                             <img src="~/images/brand.png" alt="eShop On Web" />
                         </a>
                     </section>
+                    <section class="col-lg-1 col-md-1 col-xs-12" style="display: flex; align-items: center;">
+                        <button id="theme-toggle" class="btn btn-sm" style="white-space: nowrap; font-size: 14px; padding: 5px 10px;" title="Click to cycle through themes: Light → Dark → Auto">🎨 Light</button>
+                    </section>
                     <partial name="_LoginPartial" />
                 </article>
             </div>
@@ -43,7 +47,7 @@
                 <article class="row">
                     <section class="col-sm-6"></section>
                     <section class="col-sm-6">
-                        <div class="esh-app-footer-text hidden-xs"> e-ShopOnWeb. All rights reserved </div>
+                        <div class="esh-app-footer-text hidden-xs"> DAMIANO's SHOP. All rights reserved </div>
                     </section>
                 </article>
             </div>
