@@ -8,6 +8,7 @@ using Microsoft.eShopWeb.ApplicationCore.Exceptions;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
 using Microsoft.eShopWeb.ApplicationCore.Services;
 using Microsoft.eShopWeb.ApplicationCore.Specifications;
+using Microsoft.eShopWeb.UnitTests.Builders;
 using NSubstitute;
 using Xunit;
 
@@ -53,8 +54,12 @@ public class CreateOrder
         var basket = new Basket("testbuyer");
         basket.AddItem(1, 10.0m, 2);
 
-        var catalogItem = new CatalogItem(1, 1, "Description", "Item 1", 10.0m, "item1.png");
-        typeof(CatalogItem).GetProperty("Id")!.SetValue(catalogItem, 1);
+        var catalogItem = new CatalogItemBuilder()
+            .WithId(1)
+            .WithName("Item 1")
+            .WithPrice(10.0m)
+            .WithPictureUri("item1.png")
+            .Build();
 
         _mockBasketRepo.FirstOrDefaultAsync(Arg.Any<BasketWithItemsSpecification>(), default)
             .Returns(basket);
@@ -80,11 +85,19 @@ public class CreateOrder
         basket.AddItem(1, 10.0m, 2);
         basket.AddItem(2, 15.0m, 1);
 
-        var catalogItem1 = new CatalogItem(1, 1, "Description 1", "Item 1", 10.0m, "item1.png");
-        typeof(CatalogItem).GetProperty("Id")!.SetValue(catalogItem1, 1);
+        var catalogItem1 = new CatalogItemBuilder()
+            .WithId(1)
+            .WithName("Item 1")
+            .WithPrice(10.0m)
+            .WithPictureUri("item1.png")
+            .Build();
         
-        var catalogItem2 = new CatalogItem(1, 1, "Description 2", "Item 2", 15.0m, "item2.png");
-        typeof(CatalogItem).GetProperty("Id")!.SetValue(catalogItem2, 2);
+        var catalogItem2 = new CatalogItemBuilder()
+            .WithId(2)
+            .WithName("Item 2")
+            .WithPrice(15.0m)
+            .WithPictureUri("item2.png")
+            .Build();
 
         _mockBasketRepo.FirstOrDefaultAsync(Arg.Any<BasketWithItemsSpecification>(), default)
             .Returns(basket);
@@ -111,11 +124,19 @@ public class CreateOrder
         basket.AddItem(1, 10.0m, 2);
         basket.AddItem(2, 15.0m, 1);
 
-        var catalogItem1 = new CatalogItem(1, 1, "Description 1", "Item 1", 10.0m, "item1.png");
-        typeof(CatalogItem).GetProperty("Id")!.SetValue(catalogItem1, 1);
+        var catalogItem1 = new CatalogItemBuilder()
+            .WithId(1)
+            .WithName("Item 1")
+            .WithPrice(10.0m)
+            .WithPictureUri("item1.png")
+            .Build();
         
-        var catalogItem2 = new CatalogItem(1, 1, "Description 2", "Item 2", 15.0m, "item2.png");
-        typeof(CatalogItem).GetProperty("Id")!.SetValue(catalogItem2, 2);
+        var catalogItem2 = new CatalogItemBuilder()
+            .WithId(2)
+            .WithName("Item 2")
+            .WithPrice(15.0m)
+            .WithPictureUri("item2.png")
+            .Build();
 
         _mockBasketRepo.FirstOrDefaultAsync(Arg.Any<BasketWithItemsSpecification>(), default)
             .Returns(basket);
