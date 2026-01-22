@@ -1,4 +1,10 @@
 /* Theme Toggle Button Styles */
+.theme-toggle-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .theme-toggle {
     display: inline-flex;
     align-items: center;

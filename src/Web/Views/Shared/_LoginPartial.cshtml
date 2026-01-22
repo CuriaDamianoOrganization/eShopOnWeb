@@ -1,7 +1,7 @@
 ﻿@{
     // Theme toggle button - shared between authenticated and non-authenticated states
     var themeToggleHtml = @"
-    <section class=""col-lg-1 col-md-1 col-xs-12"" style=""display: flex; align-items: center; justify-content: center;"">
+    <section class=""col-lg-1 col-md-1 col-xs-12 theme-toggle-section"">
         <button class=""theme-toggle"" onclick=""window.themeManager.cycle()"" type=""button"" aria-label=""Toggle theme"">
             <span class=""theme-icon"">🔄</span>
             <span class=""theme-label"">Auto</span>
@@ -48,7 +48,7 @@
     
     @Html.Raw(themeToggleHtml)
 
-    <section class="col-lg-1 col-xs-12">
+    <section class="col-lg-1 col-md-1 col-xs-12">
         @await Component.InvokeAsync("Basket")
     </section>
 
@@ -70,7 +70,7 @@ else
     
     @Html.Raw(themeToggleHtml)
 
-    <section class="col-lg-1 col-xs-12">
+    <section class="col-lg-1 col-md-1 col-xs-12">
         @await Component.InvokeAsync("Basket")
     </section>
 }
