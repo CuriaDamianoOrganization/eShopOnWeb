@@ -118,4 +118,4 @@ The solution includes comprehensive testing:
 
 For more detailed information about the architectural principles and patterns used in this application, refer to:
 - [Architecting Modern Web Applications with ASP.NET Core and Azure](https://aka.ms/webappebook)
-- [.NET Architecture Documentation](https://docs.microsoft.com/dotnet/architecture/modern-web-apps-azure/)
+- [.NET Architecture Documentation](https://learn.microsoft.com/dotnet/architecture/modern-web-apps-azure/)
