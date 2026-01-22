@@ -41,8 +41,9 @@ public class SetQuantities
 
         var basketService = new BasketService(_mockBasketRepo, _mockLogger);
         
-        var firstItem = basket.Items.First();
-        var itemId = firstItem.Id;
+        Assert.Equal(2, basket.Items.Count);
+        var itemToUpdate = basket.Items.First(i => i.CatalogItemId == 1);
+        var itemId = itemToUpdate.Id;
         var quantities = new Dictionary<string, int>
         {
             { itemId.ToString(), 5 }
@@ -51,7 +52,8 @@ public class SetQuantities
         var result = await basketService.SetQuantities(basket.Id, quantities);
 
         Assert.True(result.IsSuccess);
-        Assert.Equal(5, basket.Items.First(i => i.Id == itemId).Quantity);
+        var updatedItem = basket.Items.Single(i => i.CatalogItemId == 1);
+        Assert.Equal(5, updatedItem.Quantity);
         await _mockBasketRepo.Received().UpdateAsync(basket, default);
     }
 
@@ -66,6 +68,7 @@ public class SetQuantities
 
         var basketService = new BasketService(_mockBasketRepo, _mockLogger);
         
+        Assert.Single(basket.Items);
         var firstItem = basket.Items.First();
         var itemId = firstItem.Id;
         var quantities = new Dictionary<string, int>
@@ -90,6 +93,7 @@ public class SetQuantities
 
         var basketService = new BasketService(_mockBasketRepo, _mockLogger);
         
+        Assert.Single(basket.Items);
         var firstItem = basket.Items.First();
         var itemId = firstItem.Id;
         var quantities = new Dictionary<string, int>
