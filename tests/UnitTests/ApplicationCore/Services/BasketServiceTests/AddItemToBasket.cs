@@ -43,4 +43,17 @@ public class AddItemToBasket
 
         await _mockBasketRepo.Received().UpdateAsync(basket, default);
     }
+
+    [Fact]
+    public async Task CreatesNewBasketIfNotExists()
+    {
+        _mockBasketRepo.FirstOrDefaultAsync(Arg.Any<BasketWithItemsSpecification>(), default)
+            .Returns((Basket?)null);
+
+        var basketService = new BasketService(_mockBasketRepo, _mockLogger);
+
+        await basketService.AddItemToBasket(_buyerId, 1, 1.50m);
+
+        await _mockBasketRepo.Received().AddAsync(Arg.Is<Basket>(b => b.BuyerId == _buyerId), default);
+    }
 }
