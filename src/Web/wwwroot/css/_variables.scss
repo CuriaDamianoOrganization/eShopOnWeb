@@ -53,16 +53,16 @@
     --color-warning-bright: #ff1a1a;
     --color-warning-brighter: #ff3333;
 
-    // Dark theme backgrounds and foregrounds
-    --color-background-dark: #2a2a2a;
-    --color-background-darker: #1a1a1a;
-    --color-background-bright: #3a3a3a;
-    --color-background-brighter: #4a4a4a;
+    // Dark theme backgrounds and foregrounds (much darker)
+    --color-background-dark: #1e1e1e;
+    --color-background-darker: #0d0d0d;
+    --color-background-bright: #2d2d2d;
+    --color-background-brighter: #3d3d3d;
 
-    --color-foreground-dark: #e0e0e0;
+    --color-foreground-dark: #e8e8e8;
     --color-foreground-darker: #ffffff;
-    --color-foreground-bright: #cccccc;
-    --color-foreground-brighter: #aaaaaa;
+    --color-foreground-bright: #b0b0b0;
+    --color-foreground-brighter: #888888;
 }
 
 // SCSS variables for backward compatibility

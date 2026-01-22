@@ -20,11 +20,58 @@ body {
     border-color: var(--color-brand);
 }
 
-/* Additional theme adjustments */
+/* Dark theme enhancements */
+[data-theme="dark"] .esh-app-header {
+    background-color: var(--color-background-darker);
+    border-bottom: 1px solid var(--color-background-bright);
+}
+
 [data-theme="dark"] .esh-app-footer {
-    border-top-color: var(--color-foreground-bright);
+    background-color: var(--color-background-darker);
+    border-top-color: var(--color-background-bright);
 }
 
 [data-theme="dark"] .esh-app-footer-text {
     color: var(--color-foreground-dark);
+}
+
+/* Improve contrast for dark theme */
+[data-theme="dark"] a {
+    color: var(--color-brand-bright);
+}
+
+[data-theme="dark"] .btn {
+    background-color: var(--color-background-bright);
+    color: var(--color-foreground-dark);
+    border-color: var(--color-background-bright);
+}
+
+[data-theme="dark"] .btn:hover {
+    background-color: var(--color-brand);
+    color: var(--color-background-darker);
+    border-color: var(--color-brand);
+}
+
+/* Card and content area improvements for dark theme */
+[data-theme="dark"] .card,
+[data-theme="dark"] .panel,
+[data-theme="dark"] .well {
+    background-color: var(--color-background-bright);
+    border-color: var(--color-background-dark);
+    color: var(--color-foreground-dark);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+    background-color: var(--color-background-bright);
+    color: var(--color-foreground-dark);
+    border-color: var(--color-background-dark);
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] textarea:focus {
+    background-color: var(--color-background-brighter);
+    border-color: var(--color-brand);
 }
