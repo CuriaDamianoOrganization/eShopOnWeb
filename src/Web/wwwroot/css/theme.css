@@ -1,0 +1,30 @@
+/* Theme support for light and dark modes */
+body {
+    background-color: var(--color-background-brighter);
+    color: var(--color-foreground-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme toggle button styling */
+#theme-toggle {
+    background-color: var(--color-background-bright);
+    color: var(--color-foreground-dark);
+    border: 1px solid var(--color-foreground-bright);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: var(--color-brand);
+    color: var(--color-background-brighter);
+    border-color: var(--color-brand);
+}
+
+/* Additional theme adjustments */
+[data-theme="dark"] .esh-app-footer {
+    border-top-color: var(--color-foreground-bright);
+}
+
+[data-theme="dark"] .esh-app-footer-text {
+    color: var(--color-foreground-dark);
+}

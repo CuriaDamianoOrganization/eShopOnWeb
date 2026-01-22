@@ -3,6 +3,7 @@
     "outputFileName": "wwwroot/css/site.min.css",
     "inputFiles": [
       "wwwroot/css/app.css",
+      "wwwroot/css/theme.css",
       "wwwroot/css/app.component.css",
       "wwwroot/css/shared/components/header/header.css",
       "wwwroot/css/shared/components/identity/identity.css",

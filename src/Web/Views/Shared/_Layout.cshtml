@@ -7,6 +7,7 @@
     <environment names="Development,Docker">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/app.css" />
+        <link rel="stylesheet" href="~/css/theme.css" />
         <link rel="stylesheet" href="~/css/app.component.css" />
         <link rel="stylesheet" href="~/css/shared/components/header/header.css" />
         <link rel="stylesheet" href="~/css/shared/components/identity/identity.css" />
@@ -32,6 +33,9 @@
                         <a asp-area="" asp-page="/Index">
                             <img src="~/images/brand.png" alt="eShop On Web" />
                         </a>
+                    </section>
+                    <section class="col-lg-1 col-md-1 col-xs-12" style="display: flex; align-items: center;">
+                        <button id="theme-toggle" class="btn btn-sm" style="white-space: nowrap; font-size: 14px; padding: 5px 10px;" title="Click to cycle through themes: Light → Dark → Auto">🎨 Light</button>
                     </section>
                     <partial name="_LoginPartial" />
                 </article>
