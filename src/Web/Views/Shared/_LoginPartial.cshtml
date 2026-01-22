@@ -33,6 +33,13 @@
             </form>
         </div>
     </section>
+    
+    <section class="col-lg-1 col-md-1 col-xs-12" style="display: flex; align-items: center; justify-content: center;">
+        <button id="theme-toggle" class="theme-toggle" onclick="window.themeManager.cycle()" type="button" aria-label="Toggle theme">
+            <span class="theme-icon">🔄</span>
+            <span class="theme-label">Auto</span>
+        </button>
+    </section>
 
     <section class="col-lg-1 col-xs-12">
         @await Component.InvokeAsync("Basket")
@@ -52,6 +59,13 @@ else
                 </div>
             </section>
         </div>
+    </section>
+    
+    <section class="col-lg-1 col-md-1 col-xs-12" style="display: flex; align-items: center; justify-content: center;">
+        <button id="theme-toggle" class="theme-toggle" onclick="window.themeManager.cycle()" type="button" aria-label="Toggle theme">
+            <span class="theme-icon">🔄</span>
+            <span class="theme-label">Auto</span>
+        </button>
     </section>
 
     <section class="col-lg-1 col-xs-12">

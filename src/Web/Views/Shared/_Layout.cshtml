@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Microsoft.eShopOnWeb</title>
     <environment names="Development,Docker">
+        <link rel="stylesheet" href="~/css/theme-variables.css" />
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/app.css" />
         <link rel="stylesheet" href="~/css/app.component.css" />
@@ -15,12 +16,15 @@
         <link rel="stylesheet" href="~/css/basket/basket-status/basket-status.component.css" />
         <link rel="stylesheet" href="~/css/catalog/catalog.component.css" />
         <link rel="stylesheet" href="~/css/orders/orders.component.css" />
+        <link rel="stylesheet" href="~/css/theme-toggle.css" />
     </environment>
     <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/theme-variables.css" asp-append-version="true" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/theme-toggle.css" asp-append-version="true" />
     </environment>
 </head>
 <body>
@@ -28,7 +32,7 @@
         <header class="esh-app-header">
             <div class="container">
                 <article class="row">
-                    <section class="col-lg-7 col-md-6 col-xs-12">
+                    <section class="col-lg-6 col-md-6 col-xs-12">
                         <a asp-area="" asp-page="/Index">
                             <img src="~/images/brand.png" alt="eShop On Web" />
                         </a>
@@ -50,11 +54,13 @@
         </footer>
     </div>
     <environment names="Development,Docker">
+        <script src="~/js/theme.js"></script>
         <script src="~/lib/jquery/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
+        <script src="~/js/theme.js" asp-append-version="true"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery">

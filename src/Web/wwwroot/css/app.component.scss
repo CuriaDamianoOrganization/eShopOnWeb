@@ -5,14 +5,15 @@
         $margin: 2.5rem;
         $padding: 2.5rem;
 
-        background-color: $color-background-darker;
-        border-top: $border-light solid $color-foreground-bright;
+        background-color: var(--color-background-darker);
+        border-top: $border-light solid var(--color-border-light);
         margin-top: $margin;
         padding-bottom: $padding;
         padding-top: $padding;
         width: 100%;
         bottom: 0;
         $height: 50px;
+        color: var(--color-text-on-dark);
 
         &-brand {
             height: $height;
@@ -28,6 +29,7 @@
         display: flex;
         min-height: 100vh;
         flex-direction: column;
-        justify-content: space-between
+        justify-content: space-between;
+        background-color: var(--color-background-primary);
     }
 }
