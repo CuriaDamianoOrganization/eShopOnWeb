@@ -1,0 +1,32 @@
+{
+	"inputs": [
+		{
+			"id": "ado_org",
+			"type": "promptString",
+			"description": "Azure DevOps organization name (e.g. 'contoso')",
+			"default": "damianocuria"
+		},
+		{
+			"id": "ado_project",
+			"type": "promptString",
+			"description": "Azure DevOps project name",
+			"default": "eShopOnWeb"
+		}
+	],
+	"servers": {
+		"my-mcp-server-7b3253d1": {
+			"type": "stdio",
+			"command": "C:\\_WorksNB\\MCP_Experiments\\MCP_Only\\bin\\Debug\\net10.0\\MCP_Only.exe",
+			"args": []
+		},
+		"my-mcp-server-e34009b5": {
+			"url": "http://localhost:5021/api/mcp",
+			"type": "http"
+		},
+		"ado": {
+			"type": "stdio",
+			"command": "npx",
+			"args": ["-y", "@azure-devops/mcp", "${input:ado_org}", "-p", "${input:ado_project}"]
+		}
+	}
+}
