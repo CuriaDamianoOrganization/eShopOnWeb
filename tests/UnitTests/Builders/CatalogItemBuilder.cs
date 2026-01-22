@@ -4,7 +4,6 @@ namespace Microsoft.eShopWeb.UnitTests.Builders;
 
 public class CatalogItemBuilder
 {
-    private CatalogItem _catalogItem;
     private int _testId = 1;
     private int _testCatalogTypeId = 1;
     private int _testCatalogBrandId = 1;
@@ -13,54 +12,58 @@ public class CatalogItemBuilder
     private decimal _testPrice = 10.0m;
     private string _testPictureUri = "test.png";
 
-    public CatalogItemBuilder()
-    {
-        _catalogItem = WithDefaultValues();
-    }
-
     public CatalogItem Build()
     {
-        return _catalogItem;
-    }
-
-    public CatalogItem WithDefaultValues()
-    {
-        _catalogItem = new CatalogItem(_testCatalogTypeId, _testCatalogBrandId, _testDescription, _testName, _testPrice, _testPictureUri);
-        
-        // Use reflection to set the Id since it's a protected setter
-        typeof(CatalogItem).GetProperty("Id")!.SetValue(_catalogItem, _testId);
-        
-        return _catalogItem;
+        var catalogItem = new CatalogItem(_testCatalogTypeId, _testCatalogBrandId, _testDescription, _testName, _testPrice, _testPictureUri);
+        SetId(catalogItem, _testId);
+        return catalogItem;
     }
 
     public CatalogItemBuilder WithId(int id)
     {
         _testId = id;
-        typeof(CatalogItem).GetProperty("Id")!.SetValue(_catalogItem, id);
         return this;
     }
 
     public CatalogItemBuilder WithName(string name)
     {
         _testName = name;
-        _catalogItem = new CatalogItem(_testCatalogTypeId, _testCatalogBrandId, _testDescription, name, _testPrice, _testPictureUri);
-        typeof(CatalogItem).GetProperty("Id")!.SetValue(_catalogItem, _testId);
         return this;
     }
 
     public CatalogItemBuilder WithPrice(decimal price)
     {
         _testPrice = price;
-        _catalogItem = new CatalogItem(_testCatalogTypeId, _testCatalogBrandId, _testDescription, _testName, price, _testPictureUri);
-        typeof(CatalogItem).GetProperty("Id")!.SetValue(_catalogItem, _testId);
         return this;
     }
 
     public CatalogItemBuilder WithPictureUri(string pictureUri)
     {
         _testPictureUri = pictureUri;
-        _catalogItem = new CatalogItem(_testCatalogTypeId, _testCatalogBrandId, _testDescription, _testName, _testPrice, pictureUri);
-        typeof(CatalogItem).GetProperty("Id")!.SetValue(_catalogItem, _testId);
         return this;
+    }
+
+    public CatalogItemBuilder WithDescription(string description)
+    {
+        _testDescription = description;
+        return this;
+    }
+
+    public CatalogItemBuilder WithCatalogTypeId(int catalogTypeId)
+    {
+        _testCatalogTypeId = catalogTypeId;
+        return this;
+    }
+
+    public CatalogItemBuilder WithCatalogBrandId(int catalogBrandId)
+    {
+        _testCatalogBrandId = catalogBrandId;
+        return this;
+    }
+
+    private void SetId(CatalogItem catalogItem, int id)
+    {
+        // Use reflection to set the Id since it's a protected setter
+        typeof(CatalogItem).GetProperty("Id")!.SetValue(catalogItem, id);
     }
 }
