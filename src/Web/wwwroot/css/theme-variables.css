@@ -1,0 +1,95 @@
+/* Theme Variables for Light/Dark Mode Switching */
+
+:root {
+    /* Light Theme (Default) */
+    --color-brand: #00A69C;
+    --color-brand-dark: #007d76;
+    --color-brand-darker: #005b56;
+    --color-brand-bright: #1ab8ae;
+    --color-brand-brighter: #33c2b9;
+    
+    --color-secondary: #83D01B;
+    --color-secondary-dark: #74b918;
+    --color-secondary-darker: #569213;
+    --color-secondary-bright: #93d945;
+    --color-secondary-brighter: #a3e15f;
+    
+    --color-warning: #ff0000;
+    --color-warning-dark: #e60000;
+    --color-warning-darker: #b30000;
+    --color-warning-bright: #ff3333;
+    --color-warning-brighter: #ff6666;
+    
+    /* Light Theme Backgrounds */
+    --color-background-primary: #FFFFFF;
+    --color-background-secondary: #EEEEFF;
+    --color-background-dark: #333333;
+    --color-background-darker: #000000;
+    
+    /* Light Theme Foregrounds */
+    --color-foreground-primary: #333333;
+    --color-foreground-secondary: #000000;
+    --color-foreground-bright: #EEEEEE;
+    --color-foreground-brighter: #FFFFFF;
+    
+    /* Light Theme Text */
+    --color-text-primary: #333333;
+    --color-text-secondary: #666666;
+    --color-text-on-dark: #FFFFFF;
+    
+    /* Light Theme Borders */
+    --color-border-light: #EEEEEE;
+    --color-border-medium: #CCCCCC;
+    --color-border-dark: #999999;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    /* Brand colors stay the same for consistency */
+    --color-brand: #00A69C;
+    --color-brand-dark: #007d76;
+    --color-brand-darker: #005b56;
+    --color-brand-bright: #1ab8ae;
+    --color-brand-brighter: #33c2b9;
+    
+    --color-secondary: #83D01B;
+    --color-secondary-dark: #74b918;
+    --color-secondary-darker: #569213;
+    --color-secondary-bright: #93d945;
+    --color-secondary-brighter: #a3e15f;
+    
+    --color-warning: #ff3333;
+    --color-warning-dark: #ff1a1a;
+    --color-warning-darker: #cc0000;
+    --color-warning-bright: #ff6666;
+    --color-warning-brighter: #ff9999;
+    
+    /* Dark Theme Backgrounds */
+    --color-background-primary: #1a1a1a;
+    --color-background-secondary: #2a2a2a;
+    --color-background-dark: #0d0d0d;
+    --color-background-darker: #000000;
+    
+    /* Dark Theme Foregrounds */
+    --color-foreground-primary: #e0e0e0;
+    --color-foreground-secondary: #ffffff;
+    --color-foreground-bright: #3a3a3a;
+    --color-foreground-brighter: #4a4a4a;
+    
+    /* Dark Theme Text */
+    --color-text-primary: #e0e0e0;
+    --color-text-secondary: #b0b0b0;
+    --color-text-on-dark: #FFFFFF;
+    
+    /* Dark Theme Borders */
+    --color-border-light: #3a3a3a;
+    --color-border-medium: #4a4a4a;
+    --color-border-dark: #5a5a5a;
+}
+
+/* Apply theme colors to body */
+body {
+    background-color: var(--color-background-primary);
+    color: var(--color-text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
