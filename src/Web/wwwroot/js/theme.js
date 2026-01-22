@@ -51,31 +51,33 @@
     
     // Update theme toggle UI to reflect current state
     function updateThemeToggleUI(preference) {
-        const themeToggle = document.getElementById('theme-toggle');
-        if (themeToggle) {
-            themeToggle.setAttribute('data-theme-preference', preference);
-            
-            // Update button text/icon based on preference
-            const icon = themeToggle.querySelector('.theme-icon');
-            const label = themeToggle.querySelector('.theme-label');
-            
-            if (icon && label) {
-                switch(preference) {
-                    case THEME_LIGHT:
-                        icon.textContent = '☀️';
-                        label.textContent = 'Light';
-                        break;
-                    case THEME_DARK:
-                        icon.textContent = '🌙';
-                        label.textContent = 'Dark';
-                        break;
-                    case THEME_AUTO:
-                        icon.textContent = '🔄';
-                        label.textContent = 'Auto';
-                        break;
+        const themeToggles = document.querySelectorAll('.theme-toggle');
+        themeToggles.forEach(function(themeToggle) {
+            if (themeToggle) {
+                themeToggle.setAttribute('data-theme-preference', preference);
+                
+                // Update button text/icon based on preference
+                const icon = themeToggle.querySelector('.theme-icon');
+                const label = themeToggle.querySelector('.theme-label');
+                
+                if (icon && label) {
+                    switch(preference) {
+                        case THEME_LIGHT:
+                            icon.textContent = '☀️';
+                            label.textContent = 'Light';
+                            break;
+                        case THEME_DARK:
+                            icon.textContent = '🌙';
+                            label.textContent = 'Dark';
+                            break;
+                        case THEME_AUTO:
+                            icon.textContent = '🔄';
+                            label.textContent = 'Auto';
+                            break;
+                    }
                 }
             }
-        }
+        });
     }
     
     // Cycle through theme options: Light -> Dark -> Auto -> Light

@@ -40,7 +40,6 @@ public class ThemeFunctionality : IClassFixture<TestApplication>
         var stringResponse = await response.Content.ReadAsStringAsync();
 
         // Assert - Check that theme toggle button exists
-        Assert.Contains("id=\"theme-toggle\"", stringResponse);
         Assert.Contains("class=\"theme-toggle\"", stringResponse);
         Assert.Contains("theme-icon", stringResponse);
         Assert.Contains("theme-label", stringResponse);

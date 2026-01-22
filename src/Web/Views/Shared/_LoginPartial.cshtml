@@ -1,4 +1,16 @@
-﻿@if (Context!.User!.Identity!.IsAuthenticated)
+﻿@{
+    // Theme toggle button - shared between authenticated and non-authenticated states
+    var themeToggleHtml = @"
+    <section class=""col-lg-1 col-md-1 col-xs-12"" style=""display: flex; align-items: center; justify-content: center;"">
+        <button class=""theme-toggle"" onclick=""window.themeManager.cycle()"" type=""button"" aria-label=""Toggle theme"">
+            <span class=""theme-icon"">🔄</span>
+            <span class=""theme-label"">Auto</span>
+        </button>
+    </section>
+    ";
+}
+
+@if (Context!.User!.Identity!.IsAuthenticated)
 {
     <section class="col-lg-4 col-md-5 col-xs-12">
         <div class="esh-identity">
@@ -34,12 +46,7 @@
         </div>
     </section>
     
-    <section class="col-lg-1 col-md-1 col-xs-12" style="display: flex; align-items: center; justify-content: center;">
-        <button id="theme-toggle" class="theme-toggle" onclick="window.themeManager.cycle()" type="button" aria-label="Toggle theme">
-            <span class="theme-icon">🔄</span>
-            <span class="theme-label">Auto</span>
-        </button>
-    </section>
+    @Html.Raw(themeToggleHtml)
 
     <section class="col-lg-1 col-xs-12">
         @await Component.InvokeAsync("Basket")
@@ -61,12 +68,7 @@ else
         </div>
     </section>
     
-    <section class="col-lg-1 col-md-1 col-xs-12" style="display: flex; align-items: center; justify-content: center;">
-        <button id="theme-toggle" class="theme-toggle" onclick="window.themeManager.cycle()" type="button" aria-label="Toggle theme">
-            <span class="theme-icon">🔄</span>
-            <span class="theme-label">Auto</span>
-        </button>
-    </section>
+    @Html.Raw(themeToggleHtml)
 
     <section class="col-lg-1 col-xs-12">
         @await Component.InvokeAsync("Basket")
