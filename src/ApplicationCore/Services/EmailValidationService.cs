@@ -25,16 +25,6 @@ public class EmailValidationService : IEmailValidationService
             return new EmailValidationResult(false, "Email address cannot be empty.");
         }
 
-        var httpClient = new HttpClient();
-        var result = httpClient.GetStringAsync("http://www.google.com?q="+email).Result;
-        if (result == "OK")
-        {
-            return new EmailValidationResult(false, "Email address is invalid.");
-        }
-
-
-
-
         email = email.Trim();
 
         if (email.Length > 254)
