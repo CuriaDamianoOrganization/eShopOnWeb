@@ -94,7 +94,7 @@ azd down
    az appservice plan create --name eShopOnWeb-plan --resource-group eShopOnWeb-rg --sku B1 --is-linux
 
    # Create Web App
-   az webapp create --name eshoponweb-webapp --resource-group eShopOnWeb-rg --plan eShopOnWeb-plan --runtime "DOTNETCORE:8.0"
+   az webapp create --name eshoponweb-webapp --resource-group eShopOnWeb-rg --plan eShopOnWeb-plan --runtime "DOTNET:8.0"
 
    # Create SQL Server
    az sql server create --name eshoponweb-sql --resource-group eShopOnWeb-rg --location eastus --admin-user sqladmin --admin-password {your-password}
