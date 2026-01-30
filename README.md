@@ -9,6 +9,17 @@ Sample ASP.NET Core reference application, powered by Microsoft, demonstrating a
 
 A list of Frequently Asked Questions about this repository can be found [here](https://github.com/dotnet-architecture/eShopOnWeb/wiki/Frequently-Asked-Questions).
 
+## Documentation
+
+📚 **[View Complete Documentation](./Docs/README.md)**
+
+Comprehensive guides and documentation are available in the [Docs](./Docs/) folder:
+
+- **[Getting Started Guide](./Docs/GettingStarted.md)** - Step-by-step instructions to set up and run the application
+- **[Architecture Overview](./Docs/Architecture.md)** - Learn about the application architecture and design patterns
+- **[Deployment Guide](./Docs/Deployment.md)** - Deploy to Azure, Docker, IIS, or Linux
+- **[API Documentation](./Docs/API.md)** - Public API endpoints and usage examples
+
 ## Overview Video
 
 [Steve "ardalis" Smith](https://twitter.com/ardalis) recorded [a live stream providing an overview of the eShopOnWeb reference app](https://www.youtube.com/watch?v=vRZ8ucGac8M&ab_channel=Ardalis) in October 2020. 
