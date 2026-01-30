@@ -23,7 +23,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
-    <!-- Temporarily disabled libman to fix build issues -->
+    <!-- Temporarily disabled to fix build - libman fails to resolve libraries from cdnjs provider.
+         This doesn't affect unit tests as they don't require the Web project's client-side libraries. -->
     <!-- <PackageReference Include="Microsoft.Web.LibraryManager.Build" /> -->
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
