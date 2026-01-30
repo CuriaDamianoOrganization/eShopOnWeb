@@ -360,10 +360,10 @@ The current API is version 1.0. Future versions will be indicated in the URL:
 
 ## CORS Configuration
 
-The API is configured to accept requests from the Blazor Admin application. To allow requests from other origins, update the CORS policy in `Startup.cs`:
+The API is configured to accept requests from the Blazor Admin application. To allow requests from other origins, update the CORS policy in `Program.cs`:
 
 ```csharp
-services.AddCors(options =>
+builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
         builder => builder
@@ -371,6 +371,9 @@ services.AddCors(options =>
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
+
+// After building the app, use the CORS policy
+app.UseCors("AllowSpecificOrigin");
 ```
 
 ## Pagination
@@ -419,6 +422,7 @@ Sorting is not currently implemented but can be added using query parameters lik
 ```csharp
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Net.Http.Headers;
 
 var client = new HttpClient();
 client.BaseAddress = new Uri("https://localhost:5200");
@@ -426,14 +430,17 @@ client.BaseAddress = new Uri("https://localhost:5200");
 // Authenticate
 var loginRequest = new { Username = "user@example.com", Password = "password" };
 var loginResponse = await client.PostAsJsonAsync("/api/authenticate", loginRequest);
-var token = await loginResponse.Content.ReadFromJsonAsync<TokenResponse>();
+
+// Read token from response
+var tokenResponse = await loginResponse.Content.ReadFromJsonAsync<dynamic>();
+var token = tokenResponse?.token?.ToString();
 
 // Use token
 client.DefaultRequestHeaders.Authorization = 
-    new AuthenticationHeaderValue("Bearer", token.Token);
+    new AuthenticationHeaderValue("Bearer", token);
 
 // Get catalog items
-var items = await client.GetFromJsonAsync<CatalogItemsResponse>("/api/catalog-items");
+var itemsResponse = await client.GetFromJsonAsync<dynamic>("/api/catalog-items");
 ```
 
 ### JavaScript Client Example
