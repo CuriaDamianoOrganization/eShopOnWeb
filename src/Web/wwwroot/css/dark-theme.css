@@ -1,0 +1,161 @@
+/* Light theme (default) */
+:root {
+    --color-brand: #00A69C;
+    --color-brand-bright: #00d9cc;
+    --color-secondary: #83D01B;
+    --color-secondary-dark: #75b918;
+    --color-secondary-darker: #4a760f;
+    --color-warning: #ff0000;
+    --color-alert-danger: #FB0D0D;
+
+    --color-background: #FFFFFF;
+    --color-background-dark: #f7f7f7;
+    --color-background-page: #FFFFFF;
+    --color-background-footer: #000000;
+    --color-background-identity-drop: #FFFFFF;
+    --color-background-orders-stripe: #EEEEFF;
+
+    --color-foreground: #000000;
+    --color-foreground-secondary: #333333;
+    --color-foreground-muted: rgba(0, 0, 0, 0.6);
+    --color-foreground-on-dark: #FFFFFF;
+    --color-foreground-on-dark-muted: rgba(255, 255, 255, 0.5);
+    --color-foreground-footer: #EEEEEE;
+
+    --color-border: #EEEEEE;
+    --color-border-dark: #d6d5d5;
+
+    --color-link: #000000;
+    --color-link-hover: #75B918;
+
+    --color-catalog-filter-bg: #00A69C;
+    --color-catalog-filter-border: #00d9cc;
+    --color-catalog-filter-option-bg: #00A69C;
+
+    --color-input-bg: #FFFFFF;
+    --color-input-text: #000000;
+    --color-input-border: #cccccc;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --color-brand: #00C4B8;
+    --color-brand-bright: #00d9cc;
+    --color-secondary: #8FE020;
+    --color-secondary-dark: #83D01B;
+    --color-secondary-darker: #6aad12;
+    --color-warning: #ff4444;
+    --color-alert-danger: #FF5252;
+
+    --color-background: #1e1e2e;
+    --color-background-dark: #181825;
+    --color-background-page: #1e1e2e;
+    --color-background-footer: #11111b;
+    --color-background-identity-drop: #2a2a3c;
+    --color-background-orders-stripe: #2a2a3c;
+
+    --color-foreground: #cdd6f4;
+    --color-foreground-secondary: #bac2de;
+    --color-foreground-muted: rgba(205, 214, 244, 0.6);
+    --color-foreground-on-dark: #cdd6f4;
+    --color-foreground-on-dark-muted: rgba(205, 214, 244, 0.5);
+    --color-foreground-footer: #45475a;
+
+    --color-border: #45475a;
+    --color-border-dark: #313244;
+
+    --color-link: #cdd6f4;
+    --color-link-hover: #8FE020;
+
+    --color-catalog-filter-bg: #007a73;
+    --color-catalog-filter-border: #00A69C;
+    --color-catalog-filter-option-bg: #007a73;
+
+    --color-input-bg: #2a2a3c;
+    --color-input-text: #cdd6f4;
+    --color-input-border: #45475a;
+}
+
+/* System preference fallback for users who haven't made a choice */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --color-brand: #00C4B8;
+        --color-brand-bright: #00d9cc;
+        --color-secondary: #8FE020;
+        --color-secondary-dark: #83D01B;
+        --color-secondary-darker: #6aad12;
+        --color-warning: #ff4444;
+        --color-alert-danger: #FF5252;
+
+        --color-background: #1e1e2e;
+        --color-background-dark: #181825;
+        --color-background-page: #1e1e2e;
+        --color-background-footer: #11111b;
+        --color-background-identity-drop: #2a2a3c;
+        --color-background-orders-stripe: #2a2a3c;
+
+        --color-foreground: #cdd6f4;
+        --color-foreground-secondary: #bac2de;
+        --color-foreground-muted: rgba(205, 214, 244, 0.6);
+        --color-foreground-on-dark: #cdd6f4;
+        --color-foreground-on-dark-muted: rgba(205, 214, 244, 0.5);
+        --color-foreground-footer: #45475a;
+
+        --color-border: #45475a;
+        --color-border-dark: #313244;
+
+        --color-link: #cdd6f4;
+        --color-link-hover: #8FE020;
+
+        --color-catalog-filter-bg: #007a73;
+        --color-catalog-filter-border: #00A69C;
+        --color-catalog-filter-option-bg: #007a73;
+
+        --color-input-bg: #2a2a3c;
+        --color-input-text: #cdd6f4;
+        --color-input-border: #45475a;
+    }
+}
+
+/* Global dark-theme body styles */
+[data-theme="dark"] body,
+[data-theme="dark"] {
+    background-color: var(--color-background-page);
+    color: var(--color-foreground);
+}
+
+/* Form inputs in dark mode */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-input,
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] input[type="password"],
+[data-theme="dark"] input[type="number"],
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    background-color: var(--color-input-bg);
+    color: var(--color-input-text);
+    border-color: var(--color-input-border);
+}
+
+/* Theme toggle button */
+.esh-theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 3rem;
+    padding: 0 0.5rem;
+    color: var(--color-foreground);
+    transition: color 0.35s;
+    vertical-align: middle;
+}
+
+.esh-theme-toggle:hover {
+    color: var(--color-secondary);
+}
+
+.esh-theme-toggle:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}

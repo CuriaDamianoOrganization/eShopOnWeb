@@ -22,7 +22,7 @@
     }
 
     .esh-pager-item--navigable:hover {
-        color: #83D01B;
+        color: var(--color-secondary, #83D01B);
     }
 
 @media screen and (max-width: 1280px) {

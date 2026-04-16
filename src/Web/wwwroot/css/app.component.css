@@ -1,6 +1,6 @@
 ﻿.esh-app-footer {
-  background-color: #000000;
-  border-top: 1px solid #EEEEEE;
+  background-color: var(--color-background-footer, #000000);
+  border-top: 1px solid var(--color-foreground-footer, #EEEEEE);
   margin-top: 2.5rem;
   padding-bottom: 2.5rem;
   padding-top: 2.5rem;
@@ -9,6 +9,9 @@
   .esh-app-footer-brand {
     height: 50px;
     width: 230px; }
+
+.esh-app-footer-text {
+  color: var(--color-foreground-footer, #EEEEEE); }
 
 .esh-app-header {
   margin: 15px; }
