@@ -4,8 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Microsoft.eShopOnWeb</title>
+    <script>
+        (function() {
+            var theme = localStorage.getItem('eshop-theme');
+            if (!theme) {
+                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
     <environment names="Development,Docker">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/dark-theme.css" />
         <link rel="stylesheet" href="~/css/app.css" />
         <link rel="stylesheet" href="~/css/app.component.css" />
         <link rel="stylesheet" href="~/css/shared/components/header/header.css" />
@@ -20,6 +30,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/dark-theme.css" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
@@ -32,6 +43,7 @@
                         <a asp-area="" asp-page="/Index">
                             <img src="~/images/brand.png" alt="eShop On Web" />
                         </a>
+                        <button id="theme-toggle" type="button" class="esh-theme-toggle" aria-label="Switch theme">🌙</button>
                     </section>
                     <partial name="_LoginPartial" />
                 </article>

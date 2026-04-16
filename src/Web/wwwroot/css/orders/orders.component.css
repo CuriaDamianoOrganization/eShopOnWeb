@@ -2,7 +2,7 @@
   min-height: 80vh;
   overflow-x: hidden; }
   .esh-orders-header {
-    background-color: #00A69C;
+    background-color: var(--color-brand, #00A69C);
     height: 4rem; }
   .esh-orders-back {
     color: rgba(255, 255, 255, 0.4);
@@ -23,7 +23,7 @@
     line-height: 2rem;
     position: relative; }
     .esh-orders-items:nth-of-type(2n + 1):before {
-      background-color: #EEEEFF;
+      background-color: var(--color-background-orders-stripe, #EEEEFF);
       content: '';
       height: 100%;
       left: 0;
@@ -41,11 +41,11 @@
     opacity: 1;
     pointer-events: all; }
   .esh-orders-link {
-    color: #83D01B;
+    color: var(--color-secondary, #83D01B);
     text-decoration: none;
     transition: color 0.35s; }
     .esh-orders-link:hover {
-      color: #75b918;
+      color: var(--color-secondary-dark, #75b918);
       transition: color 0.35s; }
   .esh-orders-detail-section {
     padding-bottom: 30px; }

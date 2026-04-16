@@ -9,25 +9,25 @@
   top: 74.28571px; }
 
 .esh-catalog-filters {
-  background-color: #00A69C;
+  background-color: var(--color-catalog-filter-bg, #00A69C);
   height: 65px; }
 
 .esh-catalog-filter {
   -webkit-appearance: none;
   background-color: transparent;
-  border-color: #00d9cc;
+  border-color: var(--color-catalog-filter-border, #00d9cc);
   color: #FFFFFF;
   cursor: pointer;
   margin-right: 1rem;
   margin-top: .5rem;
   min-width: 140px;
-  outline-color: #83D01B;
+  outline-color: var(--color-secondary, #83D01B);
   padding-bottom: 0;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   padding-top: 1.5rem; }
   .esh-catalog-filter option {
-    background-color: #00A69C; }
+    background-color: var(--color-catalog-filter-option-bg, #00A69C); }
 
 .esh-catalog-label {
   display: inline-block;
@@ -53,14 +53,14 @@
     z-index: 1; }
 
 .esh-catalog-send {
-  background-color: #83D01B;
+  background-color: var(--color-secondary, #83D01B);
   color: #FFFFFF;
   cursor: pointer;
   font-size: 1rem;
   margin-top: -1.5rem;
   transition: all 0.35s; }
   .esh-catalog-send:hover {
-    background-color: #4a760f;
+    background-color: var(--color-secondary-darker, #4a760f);
     transition: all 0.35s; }
 
 .esh-catalog-items {
@@ -84,7 +84,7 @@
   width: 100%; }
 
 .esh-catalog-button {
-  background-color: #83D01B;
+  background-color: var(--color-secondary, #83D01B);
   border: 0;
   color: #FFFFFF;
   cursor: pointer;
@@ -97,10 +97,11 @@
     opacity: .5;
     pointer-events: none; }
   .esh-catalog-button:hover {
-    background-color: #4a760f;
+    background-color: var(--color-secondary-darker, #4a760f);
     transition: all 0.35s; }
 
 .esh-catalog-name {
+  color: var(--color-foreground, inherit);
   font-size: 1rem;
   font-weight: 300;
   margin-top: .5rem;
@@ -108,6 +109,7 @@
   text-transform: uppercase; }
 
 .esh-catalog-price {
+  color: var(--color-foreground, inherit);
   font-size: 28px;
   font-weight: 900;
   text-align: center; }

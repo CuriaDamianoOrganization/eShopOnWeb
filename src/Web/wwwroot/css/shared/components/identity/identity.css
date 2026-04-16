@@ -28,7 +28,7 @@
 }
 
 .esh-identity-drop {
-  background: #FFFFFF;
+  background: var(--color-background-identity-drop, #FFFFFF);
   height: 10px;
   width: 10rem;
   overflow: hidden;
@@ -40,7 +40,7 @@
 }
 
 .esh-identity:hover .esh-identity-drop {
-  border: 1px solid #EEEEEE;
+  border: 1px solid var(--color-border, #EEEEEE);
   height: 14rem;
   transition: height 0.35s;
   z-index: 10;
@@ -52,7 +52,7 @@
 }
 
 .esh-identity-item:hover {
-  color: #75b918;
+  color: var(--color-link-hover, #75b918);
   transition: color 0.35s;
 }
 

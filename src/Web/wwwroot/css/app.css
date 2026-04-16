@@ -25,7 +25,7 @@ body {
 }
 
 .preloading {
-    color: #00A69C;
+    color: var(--color-brand, #00A69C);
     display: block;
     font-size: 1.5rem;
     left: 50%;
@@ -66,7 +66,7 @@ select::-ms-expand {
 .alert-danger {
     background-color: transparent;
     border: 0;
-    color: #FB0D0D;
+    color: var(--color-alert-danger, #FB0D0D);
     font-size: 12px;
 }
 
@@ -74,13 +74,13 @@ a,
 a:active,
 a:hover,
 a:visited {
-    color: #000;
+    color: var(--color-link, #000);
     text-decoration: none;
     transition: color 0.35s;
 }
 
     a:hover,
     a:active {
-        color: #75B918;
+        color: var(--color-link-hover, #75B918);
         transition: color 0.35s;
     }
