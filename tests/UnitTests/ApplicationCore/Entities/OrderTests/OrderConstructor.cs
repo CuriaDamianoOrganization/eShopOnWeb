@@ -30,7 +30,7 @@ public class OrderConstructor
         var address = new AddressBuilder().WithDefaultValues();
         var items = new List<OrderItem>();
 
-        Assert.Throws<ArgumentException>(() => new Order(null!, address, items));
+        Assert.Throws<ArgumentNullException>(() => new Order(null!, address, items));
     }
 
     [Fact]

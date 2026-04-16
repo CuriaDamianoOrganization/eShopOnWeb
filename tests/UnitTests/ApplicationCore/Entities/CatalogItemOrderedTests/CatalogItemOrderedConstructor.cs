@@ -30,7 +30,7 @@ public class CatalogItemOrderedConstructor
     [Fact]
     public void ThrowsWhenProductNameIsNull()
     {
-        Assert.Throws<ArgumentException>(() =>
+        Assert.Throws<ArgumentNullException>(() =>
             new CatalogItemOrdered(_testCatalogItemId, null!, _testPictureUri));
     }
 
@@ -44,7 +44,7 @@ public class CatalogItemOrderedConstructor
     [Fact]
     public void ThrowsWhenPictureUriIsNull()
     {
-        Assert.Throws<ArgumentException>(() =>
+        Assert.Throws<ArgumentNullException>(() =>
             new CatalogItemOrdered(_testCatalogItemId, _testProductName, null!));
     }
 

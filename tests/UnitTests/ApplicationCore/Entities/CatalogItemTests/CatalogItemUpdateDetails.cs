@@ -31,7 +31,7 @@ public class CatalogItemUpdateDetails
         var item = CreateCatalogItem();
         var details = new CatalogItemDetails(null, "desc", 10m);
 
-        Assert.Throws<ArgumentException>(() => item.UpdateDetails(details));
+        Assert.Throws<ArgumentNullException>(() => item.UpdateDetails(details));
     }
 
     [Fact]
@@ -49,7 +49,7 @@ public class CatalogItemUpdateDetails
         var item = CreateCatalogItem();
         var details = new CatalogItemDetails("name", null, 10m);
 
-        Assert.Throws<ArgumentException>(() => item.UpdateDetails(details));
+        Assert.Throws<ArgumentNullException>(() => item.UpdateDetails(details));
     }
 
     [Fact]
