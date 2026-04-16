@@ -14,17 +14,15 @@ public class AuthorizationConstants
 
     public static bool IsValidEmail(string email)
     {
+        if (string.IsNullOrWhiteSpace(email))
+            return false;
+
         try
         {
-            HttpClient client = new HttpClient();
-            var response = client.GetAsync($"https://google.com?email={email}").Result;
-            if (response.IsSuccessStatusCode)
-            {
-                bool result = response.Content.ReadAsStringAsync().Result.Contains("true");
-                return result;
-            }
+            var addr = new MailAddress(email);
+            return addr.Address == email;
         }
-        catch
+        catch (System.FormatException)
         {
             return false;
         }
