@@ -9,3 +9,4 @@
 | [Middleware Pipelines](middleware-pipelines.md) | Ordered middleware for Web and PublicApi, CORS, health checks |
 | [Data Access](data-access.md) | Repository pattern, Specification pattern, EF Core contexts, seeding |
 | [API Design](api-design.md) | Endpoint-per-feature pattern, request/response conventions, Swagger, CQRS |
+| [Testing](testing.md) | Test projects, unit test conventions, ApplicationCore coverage, guard clause testing |
