@@ -1,4 +1,6 @@
-﻿namespace Microsoft.eShopWeb.ApplicationCore.Constants;
+﻿using System.Net.Mail;
+
+namespace Microsoft.eShopWeb.ApplicationCore.Constants;
 
 public class AuthorizationConstants
 {
@@ -9,4 +11,20 @@ public class AuthorizationConstants
 
     // TODO: Change this to an environment variable
     public const string JWT_SECRET_KEY = "SecretKeyOfDoomThatMustBeAMinimumNumberOfBytes";
+
+    public static bool IsValidEmail(string email)
+    {
+        if (string.IsNullOrWhiteSpace(email))
+            return false;
+
+        try
+        {
+            var addr = new MailAddress(email);
+            return addr.Address == email;
+        }
+        catch (FormatException)
+        {
+            return false;
+        }
+    }
 }
