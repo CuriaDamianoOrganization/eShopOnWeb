@@ -12,7 +12,7 @@ public class AuthorizationConstants
     // TODO: Change this to an environment variable
     public const string JWT_SECRET_KEY = "SecretKeyOfDoomThatMustBeAMinimumNumberOfBytes";
 
-    public bool IsValidEmail(string email)
+    public static bool IsValidEmail(string email)
     {
         try
         {
