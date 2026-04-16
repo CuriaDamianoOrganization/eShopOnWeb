@@ -22,7 +22,7 @@ public class AuthorizationConstants
             var addr = new MailAddress(email);
             return addr.Address == email;
         }
-        catch (FormatException)
+        catch (System.FormatException)
         {
             return false;
         }
