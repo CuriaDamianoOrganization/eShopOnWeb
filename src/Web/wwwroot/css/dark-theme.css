@@ -76,7 +76,11 @@
     --color-input-border: #45475a;
 }
 
-/* System preference fallback for users who haven't made a choice */
+/*
+ * System preference fallback for users who haven't explicitly chosen a theme.
+ * Note: This duplicates the [data-theme="dark"] variables because plain CSS
+ * does not support mixins. Both blocks must be kept in sync.
+ */
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
         --color-brand: #00C4B8;

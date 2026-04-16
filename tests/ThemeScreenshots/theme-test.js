@@ -181,7 +181,8 @@ function startServer() {
     return new Promise((resolve) => {
         const server = http.createServer((req, res) => {
             const url = new URL(req.url, 'http://localhost');
-            const theme = url.searchParams.get('theme') || 'light';
+            const rawTheme = url.searchParams.get('theme') || 'light';
+            const theme = rawTheme === 'dark' ? 'dark' : 'light';
             res.writeHead(200, { 'Content-Type': 'text/html' });
             res.end(buildHTML(theme));
         });
@@ -203,7 +204,7 @@ function startServer() {
     console.log('Capturing Light Theme screenshot...');
     const lightPage = await context.newPage();
     await lightPage.goto(`${baseUrl}?theme=light`);
-    await lightPage.waitForTimeout(500);
+    await lightPage.waitForLoadState('networkidle');
     await lightPage.screenshot({
         path: path.join(screenshotDir, 'catalog-light-theme.png'),
         fullPage: true
@@ -217,7 +218,7 @@ function startServer() {
         localStorage.setItem('eshop-theme', 'dark');
     });
     await darkPage.goto(`${baseUrl}?theme=dark`);
-    await darkPage.waitForTimeout(500);
+    await darkPage.waitForLoadState('networkidle');
     await darkPage.screenshot({
         path: path.join(screenshotDir, 'catalog-dark-theme.png'),
         fullPage: true
@@ -229,14 +230,16 @@ function startServer() {
     const toggleContext = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     const togglePage = await toggleContext.newPage();
     await togglePage.goto(`${baseUrl}?theme=light`);
-    await togglePage.waitForTimeout(500);
+    await togglePage.waitForLoadState('networkidle');
 
     const initialTheme = await togglePage.evaluate(() =>
         document.documentElement.getAttribute('data-theme')
     );
 
     await togglePage.click('#theme-toggle');
-    await togglePage.waitForTimeout(500);
+    await togglePage.waitForFunction(
+        () => document.documentElement.getAttribute('data-theme') === 'dark'
+    );
 
     const afterToggle = await togglePage.evaluate(() =>
         document.documentElement.getAttribute('data-theme')
