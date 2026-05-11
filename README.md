@@ -44,6 +44,62 @@ The goal for this sample is to demonstrate some of the principles and patterns d
 - Development Process for Azure-Hosted ASP.NET Core Apps
 - Azure Hosting Recommendations for ASP.NET Core Web Apps
 
+## Architecture
+
+eShopOnWeb follows a clean, layered architecture with a single-process (monolithic) deployment model. See the full details in [Docs/architecture-overview.md](Docs/architecture-overview.md).
+
+### Solution Structure
+
+```
+eShopOnWeb.sln
+├── src/
+│   ├── ApplicationCore/     # Domain entities, interfaces, services & specifications
+│   ├── Infrastructure/      # EF Core data access, Identity, logging & external services
+│   ├── Web/                 # ASP.NET Core MVC/Razor Pages storefront
+│   ├── PublicApi/           # REST API (Minimal API endpoints, JWT auth)
+│   ├── BlazorAdmin/         # Blazor WebAssembly admin client
+│   └── BlazorShared/        # DTOs and constants shared between Web and BlazorAdmin
+└── tests/
+    ├── UnitTests/
+    ├── IntegrationTests/
+    ├── FunctionalTests/
+    └── PublicApiIntegrationTests/
+```
+
+### Layers
+
+| Layer | Responsibility |
+|---|---|
+| **ApplicationCore** | Innermost layer — domain models, business logic, repository/service interfaces. No dependencies on other projects. |
+| **Infrastructure** | Implements ApplicationCore interfaces — EF Core contexts, Identity, migrations, seed data, logging adapter. |
+| **Web** | ASP.NET Core MVC/Razor Pages host — storefront UI, MediatR CQRS query handlers, caching decorators. |
+| **PublicApi** | Minimal API host — endpoint-per-feature REST API secured with JWT Bearer tokens. |
+| **BlazorAdmin** | Blazor WebAssembly SPA for catalog management — consumes PublicApi with JWT auth. |
+| **BlazorShared** | Class library — shared DTOs, authorization constants used by both Web and BlazorAdmin. |
+
+### Dependency Flow
+
+```
+Web / PublicApi / BlazorAdmin
+        │
+        ▼
+  ApplicationCore  ◄───  Infrastructure
+```
+
+ApplicationCore never references Infrastructure or the host projects. All dependencies are wired via constructor injection in each host's `Program.cs`.
+
+### Key Design Patterns
+
+| Pattern | Location | Purpose |
+|---|---|---|
+| Repository | `Infrastructure/Data/EfRepository.cs` | Abstracts data access behind generic interfaces |
+| Specification | `ApplicationCore/Specifications/` | Encapsulates query logic as reusable objects |
+| Aggregate Root | `Entities/BasketAggregate/`, `Entities/OrderAggregate/` | Enforces consistency boundaries |
+| Decorator | `Web/Services/CachedCatalogViewModelService.cs` | Adds caching to the view-model service |
+| Adapter | `Infrastructure/Logging/LoggerAdapter.cs` | Decouples domain from framework logging |
+| CQRS (MediatR) | `Web/Features/` | Separates read queries from write commands |
+| Endpoint-per-feature | `PublicApi/*Endpoints/` | One class per API operation via Ardalis.ApiEndpoints |
+
 ## Running the sample using Azd template
 
 The store's home page should look like this:
