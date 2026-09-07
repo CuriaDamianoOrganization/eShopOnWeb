@@ -19,7 +19,7 @@ html[data-theme="dark"] {
 }
 
 @media (prefers-color-scheme: dark) {
-    html:not([data-theme="light"]) {
+    html:not([data-theme="light"]):not([data-theme="dark"]) {
         color-scheme: dark;
         --theme-background: #121212;
         --theme-surface: #1e1e1e;
