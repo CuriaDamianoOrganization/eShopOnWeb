@@ -8,7 +8,10 @@
         (function () {
             // Keep this key in sync with the key in wwwroot/js/theme.js.
             var theme = window.localStorage.getItem("eshop-theme");
-            if (theme === "dark" || (theme !== "light" &&
+            if (theme !== "light" && theme !== "dark") {
+                theme = "default";
+            }
+            if (theme === "dark" || (theme === "default" &&
                 window.matchMedia("(prefers-color-scheme: dark)").matches)) {
                 document.documentElement.setAttribute("data-theme", "dark");
             }
