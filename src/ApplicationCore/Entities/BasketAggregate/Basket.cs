@@ -2,17 +2,21 @@
 using System.Linq;
 using Ardalis.GuardClauses;
 using Microsoft.eShopWeb.ApplicationCore.Interfaces;
+using System.Text.RegularExpressions;
 
 namespace Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
 
 public class Basket : BaseEntity, IAggregateRoot
 {
+    /// <summary>
+    /// Gets the identifier of the basket's buyer.
+    /// </summary>
     public string BuyerId { get; private set; }
+
     private readonly List<BasketItem> _items = new List<BasketItem>();
     public IReadOnlyCollection<BasketItem> Items => _items.AsReadOnly();
 
     public int TotalItems => _items.Sum(i => i.Quantity);
-
 
     public Basket(string buyerId)
     {
@@ -38,5 +42,11 @@ public class Basket : BaseEntity, IAggregateRoot
     public void SetNewBuyerId(string buyerId)
     {
         BuyerId = buyerId;
+    }
+
+    public static bool IsValidEmail(string email)
+    {
+        return !string.IsNullOrWhiteSpace(email)
+            && Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
     }
 }
