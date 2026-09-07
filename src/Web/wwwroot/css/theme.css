@@ -6,6 +6,9 @@
     --theme-text: #333333;
     --theme-text-muted: #555555;
     --theme-border: #dddddd;
+    --theme-link: #000000;
+    --theme-link-hover: #75b918;
+    --theme-link-visited: #333333;
 }
 
 html[data-theme="dark"] {
@@ -16,6 +19,9 @@ html[data-theme="dark"] {
     --theme-text: #eeeeee;
     --theme-text-muted: #c7c7c7;
     --theme-border: #4a4a4a;
+    --theme-link: #eeeeee;
+    --theme-link-hover: #b8eb66;
+    --theme-link-visited: #c7c7c7;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,6 +33,9 @@ html[data-theme="dark"] {
         --theme-text: #eeeeee;
         --theme-text-muted: #c7c7c7;
         --theme-border: #4a4a4a;
+        --theme-link: #eeeeee;
+        --theme-link-hover: #b8eb66;
+        --theme-link-visited: #c7c7c7;
     }
 }
 
@@ -37,11 +46,17 @@ body {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-a,
-a:active,
-a:hover,
+a {
+    color: var(--theme-link);
+}
+
 a:visited {
-    color: var(--theme-text);
+    color: var(--theme-link-visited);
+}
+
+a:hover,
+a:active {
+    color: var(--theme-link-hover);
 }
 
 .form-control,

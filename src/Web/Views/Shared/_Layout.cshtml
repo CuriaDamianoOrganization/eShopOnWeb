@@ -4,8 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Microsoft.eShopOnWeb</title>
-    @* Apply the saved theme before stylesheets load to prevent a flash of the wrong theme. *@
-    <script src="~/js/theme.js" asp-append-version="true"></script>
+    <script>
+        (function () {
+            var theme = window.localStorage.getItem("eshop-theme");
+            if (theme === "light" || theme === "dark") {
+                document.documentElement.setAttribute("data-theme", theme);
+            }
+        })();
+    </script>
     <environment names="Development,Docker">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/app.css" />
@@ -69,6 +75,7 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
+    <script src="~/js/theme.js" asp-append-version="true"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
