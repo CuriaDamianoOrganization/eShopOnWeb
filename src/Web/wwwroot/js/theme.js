@@ -20,19 +20,17 @@
 
     document.addEventListener("DOMContentLoaded", function () {
         var selector = document.querySelector("[data-theme-selector]");
-        if (!selector) {
-            return;
+        if (selector) {
+            selector.value = getTheme();
+            selector.addEventListener("change", function () {
+                applyTheme(selector.value);
+            });
         }
+    });
 
-        selector.value = getTheme();
-        selector.addEventListener("change", function () {
-            applyTheme(selector.value);
-        });
-
-        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
-            if (getTheme() === "default") {
-                applyTheme("default");
-            }
-        });
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
+        if (getTheme() === "default") {
+            applyTheme("default");
+        }
     });
 })();
