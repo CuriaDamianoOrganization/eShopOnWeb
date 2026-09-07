@@ -25,6 +25,7 @@ html[data-theme="dark"] {
 }
 
 @media (prefers-color-scheme: dark) {
+    /* The palette is repeated here so default mode can follow the OS preference. */
     html:not([data-theme="light"]):not([data-theme="dark"]) {
         color-scheme: dark;
         --theme-background: #121212;

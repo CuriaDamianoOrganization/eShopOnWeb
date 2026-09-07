@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - Microsoft.eShopOnWeb</title>
     <script>
         (function () {
+            // Keep this key in sync with the key in wwwroot/js/theme.js.
             var theme = window.localStorage.getItem("eshop-theme");
             if (theme === "light" || theme === "dark") {
                 document.documentElement.setAttribute("data-theme", theme);
