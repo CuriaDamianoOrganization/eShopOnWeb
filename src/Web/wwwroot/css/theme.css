@@ -1,0 +1,126 @@
+:root {
+    color-scheme: light;
+    --theme-background: #ffffff;
+    --theme-surface: #ffffff;
+    --theme-surface-muted: #eeeeff;
+    --theme-text: #333333;
+    --theme-text-muted: #555555;
+    --theme-border: #dddddd;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+    --theme-background: #121212;
+    --theme-surface: #1e1e1e;
+    --theme-surface-muted: #2b2b2b;
+    --theme-text: #eeeeee;
+    --theme-text-muted: #c7c7c7;
+    --theme-border: #4a4a4a;
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) {
+        color-scheme: dark;
+        --theme-background: #121212;
+        --theme-surface: #1e1e1e;
+        --theme-surface-muted: #2b2b2b;
+        --theme-text: #eeeeee;
+        --theme-text-muted: #c7c7c7;
+        --theme-border: #4a4a4a;
+    }
+}
+
+html,
+body {
+    background-color: var(--theme-background);
+    color: var(--theme-text);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+a,
+a:active,
+a:hover,
+a:visited {
+    color: var(--theme-text);
+}
+
+.form-control,
+select,
+textarea,
+input {
+    background-color: var(--theme-surface);
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+}
+
+.form-control:focus,
+select:focus,
+textarea:focus,
+input:focus {
+    background-color: var(--theme-surface);
+    color: var(--theme-text);
+}
+
+.form-control:disabled,
+input:disabled {
+    background-color: var(--theme-surface-muted);
+    color: var(--theme-text-muted);
+}
+
+.btn-default {
+    background-color: var(--theme-surface);
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+}
+
+.btn-default:hover,
+.btn-default:focus {
+    background-color: var(--theme-surface-muted);
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+}
+
+.text-muted,
+hr {
+    color: var(--theme-text-muted);
+    border-color: var(--theme-border);
+}
+
+.table,
+.well,
+.panel,
+.dropdown-menu,
+.list-group-item {
+    background-color: var(--theme-surface);
+    color: var(--theme-text);
+}
+
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+    border-color: var(--theme-border);
+}
+
+.esh-app-footer {
+    background-color: var(--theme-surface-muted);
+    border-top-color: var(--theme-border);
+}
+
+.esh-identity-drop {
+    background-color: var(--theme-surface);
+}
+
+.theme-selection {
+    margin-top: 1.5rem;
+}
+
+.theme-selection label {
+    display: block;
+}
+
+.theme-selection select {
+    max-width: 360px;
+}
