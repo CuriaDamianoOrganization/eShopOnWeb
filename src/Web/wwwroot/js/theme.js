@@ -9,15 +9,14 @@
 
     function applyTheme(theme) {
         theme = validThemes.indexOf(theme) >= 0 ? theme : "default";
-        if (theme === "default") {
-            document.documentElement.removeAttribute("data-theme");
-        } else {
+        if (theme === "dark" ||
+            (theme === "default" && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
             document.documentElement.setAttribute("data-theme", theme);
+        } else {
+            document.documentElement.removeAttribute("data-theme");
         }
         window.localStorage.setItem(storageKey, theme);
     }
-
-    applyTheme(getTheme());
 
     document.addEventListener("DOMContentLoaded", function () {
         var selector = document.querySelector("[data-theme-selector]");
@@ -28,6 +27,12 @@
         selector.value = getTheme();
         selector.addEventListener("change", function () {
             applyTheme(selector.value);
+        });
+
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
+            if (getTheme() === "default") {
+                applyTheme("default");
+            }
         });
     });
 })();
