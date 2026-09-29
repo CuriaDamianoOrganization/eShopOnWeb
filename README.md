@@ -44,6 +44,19 @@ The goal for this sample is to demonstrate some of the principles and patterns d
 - Development Process for Azure-Hosted ASP.NET Core Apps
 - Azure Hosting Recommendations for ASP.NET Core Web Apps
 
+## Architecture documentation
+
+The [`Docs`](Docs/README.md) folder contains architecture documentation for this application, including:
+
+- system architecture and project boundaries;
+- authentication and authorization;
+- dependency injection;
+- logging, observability, and exception management;
+- data persistence and configuration;
+- testing and deployment guidance.
+
+Start with the [Docs index](Docs/README.md) for the complete list of documents.
+
 ## Running the sample using Azd template
 
 The store's home page should look like this:
