@@ -9,6 +9,7 @@ This folder documents the architecture and cross-cutting concerns of the eShopOn
 - [Logging and observability](logging-and-observability.md)
 - [Exception management](exception-management.md)
 - [Data and persistence](data-and-persistence.md)
+- [Dependency injection](dependency-injection.md)
 - [Testing and quality](testing-and-quality.md)
 - [Configuration and deployment](configuration-and-deployment.md)
 
