@@ -193,3 +193,19 @@
 :root[data-theme="dark"] .toast {
     color: var(--color-action-text);
 }
+
+:root[data-theme="dark"] .toast.bg-warning {
+    background: #80540b !important;
+}
+
+:root[data-theme="dark"] .toast.bg-info {
+    background: #165468 !important;
+}
+
+:root[data-theme="dark"] .toast.bg-danger {
+    background: #862d39 !important;
+}
+
+:root[data-theme="dark"] .toast.bg-success {
+    background: var(--color-action) !important;
+}
