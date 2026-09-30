@@ -1,0 +1,211 @@
+:root {
+    --color-background-primary: #fff;
+    --color-background-secondary: #f7f7f7;
+    --color-background-accent: #eee;
+    --color-text-primary: #333;
+    --color-text-secondary: #555;
+    --color-border: #d6d5d5;
+    --color-link: #0366d6;
+    --color-brand: #00a69c;
+    --color-action: #4a760f;
+    --color-action-text: #fff;
+    --color-error: #b00020;
+    --color-focus: #005fcc;
+}
+
+:root[data-theme="dark"] {
+    --color-background-primary: #1b2027;
+    --color-background-secondary: #252c35;
+    --color-background-accent: #303a45;
+    --color-text-primary: #e6e9ed;
+    --color-text-secondary: #bac4ce;
+    --color-border: #53606e;
+    --color-link: #9fcaff;
+    --color-brand: #81e0d6;
+    --color-action: #39700e;
+    --color-action-text: #f2f5f2;
+    --color-error: #ff999e;
+    --color-focus: #ffe081;
+}
+
+.esh-app-brand {
+    color: var(--color-brand);
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0.75rem 0;
+}
+
+.theme-toggle {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    margin: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    white-space: nowrap;
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] .esh-app-wrapper,
+:root[data-theme="dark"] .main {
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+}
+
+:root[data-theme="dark"] a,
+:root[data-theme="dark"] a:visited,
+:root[data-theme="dark"] .btn-link,
+:root[data-theme="dark"] .esh-orders-link {
+    color: var(--color-link);
+}
+
+:root[data-theme="dark"] a:hover,
+:root[data-theme="dark"] a:active {
+    color: var(--color-brand);
+}
+
+:root[data-theme="dark"] .esh-app-brand,
+:root[data-theme="dark"] .esh-basket-item--mark {
+    color: var(--color-brand);
+}
+
+:root[data-theme="dark"] .esh-app-footer,
+:root[data-theme="dark"] .esh-identity-drop,
+:root[data-theme="dark"] .main .top-row,
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .modal-content,
+:root[data-theme="dark"] .dropdown-menu,
+:root[data-theme="dark"] .list-group-item,
+:root[data-theme="dark"] .popover {
+    background: var(--color-background-secondary);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+}
+
+:root[data-theme="dark"] .esh-basket-items--border,
+:root[data-theme="dark"] .esh-identity:hover .esh-identity-drop,
+:root[data-theme="dark"] .table th,
+:root[data-theme="dark"] .table td,
+:root[data-theme="dark"] .table-bordered,
+:root[data-theme="dark"] hr {
+    border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] .esh-orders-items:nth-of-type(2n + 1):before,
+:root[data-theme="dark"] .table-striped tbody tr:nth-of-type(odd),
+:root[data-theme="dark"] .table-hover tbody tr:hover,
+:root[data-theme="dark"] .page-item.active .page-link {
+    background: var(--color-background-accent);
+}
+
+:root[data-theme="dark"] .esh-catalog-filters,
+:root[data-theme="dark"] .esh-orders-header,
+:root[data-theme="dark"] .esh-header {
+    background: var(--color-background-secondary);
+}
+
+:root[data-theme="dark"] .esh-catalog-filter,
+:root[data-theme="dark"] .esh-catalog-filter option {
+    background: var(--color-background-secondary);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+}
+
+:root[data-theme="dark"] .esh-catalog-label::before,
+:root[data-theme="dark"] .esh-orders-back,
+:root[data-theme="dark"] .esh-header-back {
+    color: var(--color-text-secondary);
+}
+
+:root[data-theme="dark"] .esh-basket-checkout,
+:root[data-theme="dark"] .esh-catalog-button,
+:root[data-theme="dark"] .esh-catalog-send,
+:root[data-theme="dark"] .esh-basketstatus-badge,
+:root[data-theme="dark"] .btn-primary,
+:root[data-theme="dark"] .btn-success {
+    background: var(--color-action);
+    border-color: var(--color-action);
+    color: var(--color-action-text);
+}
+
+:root[data-theme="dark"] .esh-basket-checkout:hover,
+:root[data-theme="dark"] .esh-catalog-button:hover,
+:root[data-theme="dark"] .esh-catalog-send:hover,
+:root[data-theme="dark"] .btn-primary:hover,
+:root[data-theme="dark"] .btn-success:hover {
+    background: var(--color-background-accent);
+    border-color: var(--color-brand);
+    color: var(--color-text-primary);
+}
+
+:root[data-theme="dark"] .text-white {
+    color: var(--color-action-text) !important;
+}
+
+:root[data-theme="dark"] input:not([type="image"]):not([type="checkbox"]):not([type="radio"]),
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] .form-control,
+:root[data-theme="dark"] .custom-select,
+:root[data-theme="dark"] .page-link {
+    background: var(--color-background-secondary);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+}
+
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder,
+:root[data-theme="dark"] .text-muted {
+    color: var(--color-text-secondary) !important;
+}
+
+:root[data-theme="dark"] .validation-message,
+:root[data-theme="dark"] .field-validation-error,
+:root[data-theme="dark"] .text-danger,
+:root[data-theme="dark"] .alert-danger {
+    color: var(--color-error);
+}
+
+:root[data-theme="dark"] .alert-danger,
+:root[data-theme="dark"] .alert-warning,
+:root[data-theme="dark"] #blazor-error-ui {
+    background: var(--color-background-accent);
+    border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] .sidebar .nav-item a,
+:root[data-theme="dark"] .sidebar .navbar-brand {
+    color: var(--color-text-primary);
+}
+
+:root[data-theme="dark"] .sidebar .nav-item a.active,
+:root[data-theme="dark"] .sidebar .nav-item a:hover {
+    background: var(--color-background-accent);
+}
+
+:root[data-theme="dark"] .toast {
+    color: var(--color-action-text);
+}
+
+:root[data-theme="dark"] .toast.bg-warning {
+    background: #80540b !important;
+}
+
+:root[data-theme="dark"] .toast.bg-info {
+    background: #165468 !important;
+}
+
+:root[data-theme="dark"] .toast.bg-danger {
+    background: #862d39 !important;
+}
+
+:root[data-theme="dark"] .toast.bg-success {
+    background: var(--color-action) !important;
+}

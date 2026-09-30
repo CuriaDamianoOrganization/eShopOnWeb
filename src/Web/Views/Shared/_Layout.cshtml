@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Microsoft.eShopOnWeb</title>
+    <title>@ViewData["Title"] - DAMIANO's BEST eSHOP</title>
+    <script src="~/js/theme.js" asp-append-version="true"></script>
     <environment names="Development,Docker">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/app.css" />
@@ -22,6 +23,7 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
 </head>
 <body>
     <div class="esh-app-wrapper">
@@ -30,10 +32,11 @@
                 <article class="row">
                     <section class="col-lg-7 col-md-6 col-xs-12">
                         <a asp-area="" asp-page="/Index">
-                            <img src="~/images/brand.png" alt="eShop On Web" />
+                            <span class="esh-app-brand">DAMIANO's BEST eSHOP</span>
                         </a>
                     </section>
                     <partial name="_LoginPartial" />
+                    <button type="button" class="theme-toggle" data-theme-toggle>Dark theme</button>
                 </article>
             </div>
         </header>
@@ -43,7 +46,7 @@
                 <article class="row">
                     <section class="col-sm-6"></section>
                     <section class="col-sm-6">
-                        <div class="esh-app-footer-text hidden-xs"> e-ShopOnWeb. All rights reserved </div>
+                        <div class="esh-app-footer-text hidden-xs"> DAMIANO's BEST eSHOP. All rights reserved </div>
                     </section>
                 </article>
             </div>
